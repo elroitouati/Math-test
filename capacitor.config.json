@@ -1,6 +1,6 @@
 {
   "appId": "com.elroi.mathprep",
-  "appName": "מוכן למבחן",
+  "appName": "מבחן במתמטיקה",
   "webDir": "www",
   "android": {
     "adjustMarginsForEdgeToEdge": "force"
