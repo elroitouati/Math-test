@@ -190,13 +190,16 @@ function viewToday() {
     const st = dayStats(day);
     html += `<div class="section">
       <div class="section-head"><h2>${esc(day.title)}</h2><span class="aside">${n(st.done + '/' + st.total)}</span></div>
-      ${day.light ? '<div class="eyebrow">יום קצר לפני שבת</div>' : ''}
+      ${day.note ? `<div class="eyebrow">${esc(day.note)}</div>` : ''}
       <div class="daybar ${st.complete ? 'done' : ''}"><i style="width:${st.pct * 100}%"></i></div>
       ${st.complete ? `<div class="banner success celebrate" style="margin-bottom:12px"><span class="em">🎉</span><div><h3>סיימת את היום!</h3><p>עקביות זה כל הסוד. נתראה מחר.</p></div></div>` : ''}
       <div class="card tasks">${day.tasks.map(t => taskHTML(t)).join('')}</div>
     </div>`;
   } else {
-    html += `<div class="section"><div class="banner calm"><span class="em">📅</span><div><h3>אין משימות להיום</h3><p>התוכנית מתחילה ב-${n(shortDate(PLAN[0].date))}.</p></div></div></div>`;
+    const startIn = dayDiff(tk, PLAN[0].date);
+    html += startIn > 0
+      ? `<div class="section"><div class="banner calm"><span class="em">😌</span><div><h3>היום חופש</h3><p>${startIn === 1 ? 'מתחילים מחר' : `מתחילים ב-${n(shortDate(PLAN[0].date))}`} – בנחת, ומרביעי נכנסים לקצב.</p></div></div></div>`
+      : `<div class="section"><div class="banner calm"><span class="em">📅</span><div><h3>אין משימות להיום</h3><p>תסתכל על "להשלים" או על המשימות של מחר.</p></div></div></div>`;
   }
 
   // overdue
@@ -240,7 +243,7 @@ function viewPlan() {
     if (past && !day.rest && !st.complete) cls.push('past-incomplete');
     const status = day.rest ? '<span style="font-size:20px">🕯️</span>'
       : st.complete ? `<span class="status-done">${I.check}</span>` : miniRing(st.pct);
-    const sub = day.rest ? 'מנוחה' : `${n(st.done + '/' + st.total)} משימות${isToday ? ' · היום' : ''}${past && !st.complete ? ' · נשאר להשלים' : ''}`;
+    const sub = day.rest ? 'מנוחה' : `${n(st.done + '/' + st.total)} משימות · ~${n(day.tasks.reduce((a, t) => a + t.min, 0))} דק׳${isToday ? ' · היום' : ''}${past && !st.complete ? ' · נשאר להשלים' : ''}`;
     html += `<div class="${cls.join(' ')}" data-day="${day.date}">
       <button class="day-head" ${day.rest ? 'disabled' : `data-action="toggle-day" data-date="${day.date}" aria-expanded="${openDays.has(day.date)}"`}>
         <span class="day-date"><div class="dw">${WD[d.getDay()]}</div><div class="dn">${n(d.getDate())}</div></span>
@@ -314,7 +317,7 @@ function viewProgress() {
 
   <div class="section"><div class="section-head"><h2>יום אחרי יום</h2></div>
   <div class="card">
-    <div class="strip">${PLAN.map(d => {
+    <div class="strip" style="grid-template-columns:repeat(${PLAN.length}, 1fr)">${PLAN.map(d => {
       const st = dayStats(d);
       let c = '';
       if (d.rest) c = 'rest';
@@ -402,7 +405,7 @@ function sheetHTML() {
   <h2>הגדרות</h2>
   <div class="row"><div class="l"><div class="t">תזכורת יומית</div><div class="d">${isNative ? 'התראה עם המשימות של היום' : 'זמין באפליקציה המותקנת'}</div></div>
     <button class="switch" role="switch" aria-checked="${s.notif}" data-set="notif" aria-label="תזכורת יומית"></button></div>
-  <div class="row"><div class="l"><div class="t">שעת התזכורת</div><div class="d">בשישי – לא אחרי 12:00</div></div>
+  <div class="row"><div class="l"><div class="t">שעת התזכורת</div><div class="d">בשישי – בבוקר, לפני שבת</div></div>
     <input class="time-input" type="time" value="${s.remind}" data-set="remind" aria-label="שעת התזכורת"></div>
   <div class="row"><div class="l"><div class="t">תזכורת ערב</div><div class="d">ב-20:30, רק אם נשארו משימות</div></div>
     <button class="switch" role="switch" aria-checked="${s.evening}" data-set="evening" aria-label="תזכורת ערב"></button></div>
@@ -483,7 +486,7 @@ async function doSchedule() {
     if (st.complete) return;
     const dow = parseKey(day.date).getDay();
     let rt = state.settings.remind;
-    if (dow === 5 && rt > '12:00') rt = '11:00';
+    if (dow === 5 && rt > '10:00') rt = '09:30';
     const left = st.total - st.done;
     const first = day.tasks.find(x => !isDone(x.id));
     const when = at(day.date, rt);
