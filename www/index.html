@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F6F5F1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F16" media="(prefers-color-scheme: dark)">
+  <title>מוכן למבחן</title>
+  <link rel="icon" href="logo.png">
+  <link rel="preload" href="fonts/rubik-hebrew-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/varela-round-hebrew-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <main id="view" class="view"></main>
+  </div>
+
+  <nav class="tabbar" aria-label="ניווט ראשי">
+    <div class="tabbar-inner">
+      <button class="tab active" data-view="today"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="16" rx="3.5"/><path d="M8 2.8v3.4M16 2.8v3.4M3.5 9.5h17"/><path d="M8.8 14.6l2.2 2.2 4.2-4.3"/></svg></span>היום</button>
+      <button class="tab" data-view="plan"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.3"/><circle cx="4.5" cy="12" r="1.3"/><circle cx="4.5" cy="18" r="1.3"/></svg></span>תוכנית</button>
+      <button class="tab" data-view="material"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/><path d="M9 8h7M9 11.5h5"/></svg></span>חומר</button>
+      <button class="tab" data-view="progress"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>התקדמות</button>
+    </div>
+  </nav>
+
+  <div id="scrim" class="scrim"></div>
+  <div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-label="הגדרות" aria-hidden="true"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

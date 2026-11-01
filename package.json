@@ -1,0 +1,20 @@
+{
+  "name": "math-exam-prep",
+  "version": "1.0.0",
+  "private": true,
+  "description": "אפליקציית ליווי למבחן במתמטיקה – ל' חשון",
+  "scripts": {
+    "sync": "cap sync android",
+    "apk": "cap sync android && cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.6.10",
+    "@capacitor/app": "^7.1.2",
+    "@capacitor/cli": "^7.6.10",
+    "@capacitor/core": "^7.6.10",
+    "@capacitor/haptics": "^7.0.5",
+    "@capacitor/local-notifications": "^7.0.7",
+    "@fontsource/rubik": "^5.3.0",
+    "@fontsource/varela-round": "^5.3.0"
+  }
+}

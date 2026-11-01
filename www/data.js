@@ -1,0 +1,316 @@
+// ===== תוכנית הלימוד והחומר למבחן =====
+// מבחן: יום ג', ל' חשון – 10/11/2026
+
+window.EXAM = {
+  date: '2026-11-10',
+  time: '08:00',
+  hebDate: "ל' חשון",
+  title: 'מבחן במתמטיקה · ט׳ קבוצה א׳ מואצת',
+};
+
+// נושאים – לצורך מעקב התקדמות
+window.TOPICS = {
+  formulas:  { name: 'נוסחאות הכפל המקוצר', short: 'כפל מקוצר', hue: 'indigo' },
+  factoring: { name: 'פירוק לגורמים',        short: 'פירוק',     hue: 'violet' },
+  equations: { name: 'משוואות',              short: 'משוואות',   hue: 'sky' },
+  word:      { name: 'שאלות מילוליות',       short: 'מילוליות',  hue: 'teal' },
+  fractions: { name: 'שברים אלגבריים',       short: 'שברים',     hue: 'amber' },
+  isosceles: { name: 'משולש שווה שוקיים',    short: 'שווה שוקיים', hue: 'rose' },
+  kite:      { name: 'דלתון',                short: 'דלתון',     hue: 'emerald' },
+  review:    { name: 'חזרה כללית',           short: 'חזרה',      hue: 'slate' },
+};
+
+// מקורות
+window.SOURCES = {
+  arch:  'ארכימדס',
+  sheet: 'דף עבודה – פירוק לגורמים',
+  home:  'תרגול לבית',
+  kite:  'דלתון – הוכחות נוספות',
+  coord: 'דף עבודה – מערכת צירים',
+  app:   'באפליקציה',
+};
+
+// התוכנית היומית. Shabbat = מנוחה.
+window.PLAN = [
+  {
+    date: '2026-11-01',
+    title: 'פותחים: נוסחאות הכפל המקוצר',
+    focus: 'formulas',
+    tasks: [
+      { id: 'd1-read', topic: 'formulas', src: 'app', title: 'לקרוא את כרטיס "נוסחאות הכפל המקוצר" בלשונית חומר', min: 10 },
+      { id: 'd1-a24', topic: 'formulas', src: 'arch', title: "עמ' 24", min: 30 },
+      { id: 'd1-s1', topic: 'factoring', src: 'sheet', title: 'שאלה 1 – הוצאת גורם משותף (א–יד)', min: 20, note: "לבדוק מול 'תשובות סופיות' בסוף הדף" },
+      { id: 'd1-s2', topic: 'factoring', src: 'sheet', title: 'שאלה 2 – פירוק בקבוצות (א–יח)', min: 30 },
+    ],
+  },
+  {
+    date: '2026-11-02',
+    title: 'פירוק לגורמים לעומק',
+    focus: 'factoring',
+    tasks: [
+      { id: 'd2-a25', topic: 'factoring', src: 'arch', title: "עמ' 25 – עד תרגיל 26", min: 35 },
+      { id: 'd2-a26', topic: 'factoring', src: 'arch', title: "עמ' 26 – תרגיל ג", min: 15 },
+      { id: 'd2-s34', topic: 'factoring', src: 'sheet', title: 'שאלות 3–4 – הפרש ריבועים', min: 25 },
+      { id: 'd2-s56', topic: 'formulas', src: 'sheet', title: 'שאלות 5–6 – פירוק בעזרת הכפל המקוצר', min: 25 },
+    ],
+  },
+  {
+    date: '2026-11-03',
+    title: 'טרינום וריבוע מושלם',
+    focus: 'factoring',
+    tasks: [
+      { id: 'd3-a28', topic: 'formulas', src: 'arch', title: "עמ' 28 – תרגיל א", min: 20 },
+      { id: 'd3-s710', topic: 'formulas', src: 'sheet', title: 'שאלות 7–10 – שטחים, השלמת חסר, חשבון בלי מחשבון', min: 35 },
+      { id: 'd3-s1113', topic: 'factoring', src: 'sheet', title: 'שאלות 11–13 – פירוק טרינום', min: 30 },
+    ],
+  },
+  {
+    date: '2026-11-04',
+    title: 'משוואות ושאלות מילוליות',
+    focus: 'equations',
+    tasks: [
+      { id: 'd4-s16', topic: 'equations', src: 'sheet', title: 'שאלה 16 – משוואות בעזרת פירוק (א–יח)', min: 35 },
+      { id: 'd4-a29', topic: 'word', src: 'arch', title: "עמ' 29 – תרגילים 1–4 (שאלות מילוליות)", min: 30 },
+      { id: 'd4-s1415', topic: 'factoring', src: 'sheet', title: 'שאלות 14–15 – מלבנים ופירוק x⁸', min: 15, note: 'שאלות כוכבית – אתגר' },
+      { id: 'd4-s2023', topic: 'factoring', src: 'sheet', title: 'שאלות 20–23 – חישוב חכם והוכחות', min: 20 },
+    ],
+  },
+  {
+    date: '2026-11-05',
+    title: 'שברים אלגבריים',
+    focus: 'fractions',
+    tasks: [
+      { id: 'd5-s17', topic: 'fractions', src: 'sheet', title: 'שאלה 17 – צמצום ותחום הצבה (א–יד)', min: 30 },
+      { id: 'd5-a42a', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה א, סעיפים 1–15", min: 35 },
+      { id: 'd5-a42b', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה ב, סעיפים 1–11", min: 30 },
+      { id: 'd5-s1819', topic: 'fractions', src: 'sheet', title: 'שאלות 18–19 – כפל וחילוק שברים', min: 25 },
+    ],
+  },
+  {
+    date: '2026-11-06',
+    title: 'משולש שווה שוקיים',
+    focus: 'isosceles',
+    light: true,
+    tasks: [
+      { id: 'd6-read', topic: 'isosceles', src: 'app', title: 'לקרוא את כרטיסי "משולש שווה שוקיים" ו"משפטי חפיפה"', min: 10 },
+      { id: 'd6-a242', topic: 'isosceles', src: 'arch', title: "עמ' 242–245", min: 40 },
+      { id: 'd6-h12', topic: 'isosceles', src: 'home', title: 'שאלות 1–2', min: 25 },
+    ],
+  },
+  {
+    date: '2026-11-07',
+    title: 'שבת שלום',
+    rest: true,
+    tasks: [],
+  },
+  {
+    date: '2026-11-08',
+    title: 'דלתון',
+    focus: 'kite',
+    tasks: [
+      { id: 'd8-read', topic: 'kite', src: 'app', title: 'לקרוא את כרטיס "דלתון"', min: 10 },
+      { id: 'd8-a246', topic: 'kite', src: 'arch', title: "עמ' 246–249", min: 40 },
+      { id: 'd8-h34', topic: 'kite', src: 'home', title: 'שאלות 3–4', min: 25 },
+      { id: 'd8-k13', topic: 'kite', src: 'kite', title: 'שאלות 1–3', min: 30 },
+    ],
+  },
+  {
+    date: '2026-11-09',
+    title: 'חזרה אחרונה',
+    focus: 'review',
+    tasks: [
+      { id: 'd9-k46', topic: 'kite', src: 'kite', title: 'שאלות 4–6', min: 30 },
+      { id: 'd9-coord', topic: 'kite', src: 'coord', title: 'דלתון ומשולש שווה שוקיים במערכת צירים', min: 30 },
+      { id: 'd9-redo', topic: 'review', src: 'app', title: 'לפתור שוב 5 תרגילים שטעית בהם השבוע', min: 25 },
+      { id: 'd9-check', topic: 'review', src: 'app', title: 'לעבור על כל כרטיסי החומר + רשימת הבדיקה למבחן', min: 15 },
+    ],
+  },
+];
+
+// ===== חומר לימוד =====
+// כל נוסחה נכתבת כ-HTML. מתמטיקה תמיד LTR בתוך <span class="m">.
+window.MATERIAL = [
+  {
+    id: 'formulas',
+    topic: 'formulas',
+    title: 'נוסחאות הכפל המקוצר',
+    blocks: [
+      { type: 'formula', label: 'ריבוע של סכום', m: '(a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup>' },
+      { type: 'formula', label: 'ריבוע של הפרש', m: '(a − b)<sup>2</sup> = a<sup>2</sup> − 2ab + b<sup>2</sup>' },
+      { type: 'formula', label: 'הפרש ריבועים', m: '(a + b)(a − b) = a<sup>2</sup> − b<sup>2</sup>' },
+      { type: 'formula', label: 'חוק הפילוג המורחב', m: '(a + b)(c + d) = ac + ad + bc + bd' },
+      { type: 'tip', text: 'האיבר האמצעי הוא תמיד <b>פעמיים</b> המכפלה. הטעות הנפוצה: לכתוב <bdi dir="ltr">(a+b)² = a² + b²</bdi>.' },
+      { type: 'example', q: '(3x − 5)<sup>2</sup>', a: '9x<sup>2</sup> − 30x + 25' },
+      { type: 'example', q: '49x<sup>2</sup> + 126x + 81', a: '(7x + 9)<sup>2</sup>' },
+      { type: 'tip', text: 'חישוב בלי מחשבון: <bdi dir="ltr">26² − 24² = (26−24)(26+24) = 2·50 = 100</bdi>.' },
+    ],
+  },
+  {
+    id: 'factoring',
+    topic: 'factoring',
+    title: 'פירוק לגורמים – כל השיטות',
+    blocks: [
+      { type: 'steps', title: 'סדר העבודה – תמיד באותו סדר', items: [
+        '<b>גורם משותף</b> – קודם כל מוציאים מה שמשותף לכל האיברים.',
+        '<b>2 איברים?</b> בודקים הפרש ריבועים: <bdi dir="ltr">a² − b² = (a−b)(a+b)</bdi>.',
+        '<b>3 איברים?</b> ריבוע מושלם <bdi dir="ltr">(a±b)²</bdi>, ואם לא – טרינום.',
+        '<b>4 איברים?</b> פירוק בקבוצות (קיבוץ).',
+        'בודקים שאף סוגריים לא ניתנים לפירוק נוסף.',
+      ]},
+      { type: 'formula', label: 'גורם משותף', m: '6x<sup>2</sup> + 2x<sup>3</sup> + 16x<sup>4</sup> = 2x<sup>2</sup>(3 + x + 8x<sup>2</sup>)' },
+      { type: 'formula', label: 'פירוק בקבוצות', m: 'x<sup>2</sup> + 7x + 2x + 14 = x(x+7) + 2(x+7) = (x+7)(x+2)' },
+      { type: 'formula', label: 'טרינום x² + bx + c', m: 'x<sup>2</sup> + bx + c = (x + p)(x + q)' },
+      { type: 'tip', text: 'בטרינום מחפשים שני מספרים p ו-q: <b>מכפלתם c</b> ו<b>סכומם b</b>. לדוגמה <bdi dir="ltr">x² + x − 110</bdi>: <bdi dir="ltr">11·(−10) = −110</bdi> וגם <bdi dir="ltr">11 + (−10) = 1</bdi> ⇐ <bdi dir="ltr">(x+11)(x−10)</bdi>.' },
+      { type: 'tip', text: 'היפוך סימן: <bdi dir="ltr">(12 − a) = −(a − 12)</bdi>. כך מגלים גורם משותף "מוסתר".' },
+      { type: 'example', q: '6x<sup>2</sup> − 54y<sup>2</sup>', a: '6(x − 3y)(x + 3y)' },
+      { type: 'example', q: '9(x − 10) − x(x − 10)', a: '(x − 10)(9 − x)' },
+    ],
+  },
+  {
+    id: 'equations',
+    topic: 'equations',
+    title: 'פתרון משוואות',
+    blocks: [
+      { type: 'steps', title: 'משוואה ריבועית בעזרת פירוק', items: [
+        'מעבירים <b>הכל לאגף אחד</b>, כך שבצד השני יהיה 0.',
+        'מפרקים לגורמים.',
+        'מכפלה שווה 0 ⇐ <b>אחד הגורמים</b> שווה 0.',
+        'משווים כל גורם ל-0 ופותרים.',
+      ]},
+      { type: 'example', q: 'x<sup>2</sup> − 7x = 2x', a: 'x(x − 9) = 0 ⇒ x = 0 , x = 9' },
+      { type: 'example', q: '4x<sup>2</sup> − 28x + 49 = 0', a: '(2x − 7)<sup>2</sup> = 0 ⇒ x = 3.5' },
+      { type: 'tip', text: '<b>אסור לחלק ב-x!</b> כך מאבדים את הפתרון <bdi dir="ltr">x = 0</bdi>. תמיד מוציאים x כגורם משותף.' },
+      { type: 'steps', title: 'משוואה עם סוגריים (פילוג מורחב / כפל מקוצר)', items: [
+        'פותחים סוגריים לפי הנוסחאות – זהירות עם מינוס לפני סוגריים.',
+        'מכנסים איברים דומים.',
+        'אם x² מתבטל – זו משוואה ממעלה ראשונה. אם לא – מעבירים לאגף אחד ומפרקים.',
+        'בודקים: מציבים את הפתרון במשוואה המקורית.',
+      ]},
+    ],
+  },
+  {
+    id: 'word',
+    topic: 'word',
+    title: 'שאלות מילוליות',
+    blocks: [
+      { type: 'steps', title: '5 צעדים לכל שאלה', items: [
+        'קוראים פעמיים ומסמנים את הנתונים ואת השאלה.',
+        'בוחרים <b>משתנה x</b> – ורושמים במילים מה הוא מייצג.',
+        'מבטאים כל גודל אחר בעזרת x (טבלה עוזרת).',
+        'בונים משוואה לפי המשפט שמשווה בין שני גדלים.',
+        'פותרים, <b>פוסלים פתרונות לא הגיוניים</b> (אורך שלילי, מספר לא שלם) ועונים במשפט.',
+      ]},
+      { type: 'tip', text: 'מלבן: שטח = אורך · רוחב, היקף = 2·(אורך + רוחב). ריבוע: שטח = צלע². מספרים עוקבים: <bdi dir="ltr">x , x+1 , x+2</bdi>.' },
+      { type: 'example', q: '9x<sup>2</sup> − 6x + 1', a: '(3x − 1)<sup>2</sup> ⇒ |3x − 1|' },
+    ],
+  },
+  {
+    id: 'fractions',
+    topic: 'fractions',
+    title: 'שברים אלגבריים',
+    blocks: [
+      { type: 'steps', title: 'צמצום', items: [
+        'מפרקים לגורמים את המונה ואת המכנה.',
+        'רושמים <b>תחום הצבה</b>: כל ערך שמאפס את המכנה – <b>לפני</b> הצמצום.',
+        'מצמצמים רק <b>גורמים</b> (כפל) – אף פעם לא מחוברים.',
+      ]},
+      { type: 'formula', label: 'כפל', m: '<span class="frac"><i>a</i><i>b</i></span> · <span class="frac"><i>c</i><i>d</i></span> = <span class="frac"><i>ac</i><i>bd</i></span>' },
+      { type: 'formula', label: 'חילוק = כפל בהופכי', m: '<span class="frac"><i>a</i><i>b</i></span> : <span class="frac"><i>c</i><i>d</i></span> = <span class="frac"><i>a</i><i>b</i></span> · <span class="frac"><i>d</i><i>c</i></span>' },
+      { type: 'tip', text: 'בחילוק, תחום ההצבה כולל גם את מה שמאפס את <b>מונה השבר המחלק</b> (כי הוא הופך למכנה).' },
+      { type: 'example', q: '<span class="frac"><i>x² − 10x + 25</i><i>x² − 25</i></span>', a: '<span class="frac"><i>x − 5</i><i>x + 5</i></span> , x ≠ ±5' },
+      { type: 'tip', text: '<bdi dir="ltr">(x − 1)/(1 − x) = −1</bdi>. היפוך סדר בסוגריים = מינוס.' },
+    ],
+  },
+  {
+    id: 'congruence',
+    topic: 'isosceles',
+    title: 'משפטי חפיפה והוכחות',
+    blocks: [
+      { type: 'list', items: [
+        '<b>צ.ז.צ</b> – שתי צלעות והזווית שביניהן.',
+        '<b>ז.צ.ז</b> – צלע ושתי הזוויות שלידה.',
+        '<b>צ.צ.צ</b> – שלוש צלעות.',
+        '<b>צ.צ.ז</b> – שתי צלעות והזווית שמול הצלע הגדולה מביניהן.',
+      ]},
+      { type: 'steps', title: 'איך כותבים הוכחה', items: [
+        'מסמנים בשרטוט את כל הנתונים (צלעות שוות, זוויות).',
+        'טבלה: <b>טענה | נימוק</b>. כל שורה – נימוק אחד (נתון / משפט / הגדרה).',
+        'אחרי חפיפה: "צלעות/זוויות מתאימות במשולשים חופפים שוות".',
+        'שותפות: צלע משותפת היא נימוק – "צלע משותפת".',
+      ]},
+    ],
+  },
+  {
+    id: 'isosceles',
+    topic: 'isosceles',
+    title: 'משולש שווה שוקיים',
+    blocks: [
+      { type: 'list', items: [
+        '<b>הגדרה:</b> משולש שבו שתי צלעות שוות (שוקיים). הצלע השלישית – בסיס.',
+        'במשולש שווה שוקיים <b>זוויות הבסיס שוות</b>.',
+        '<b>משפט הפוך:</b> משולש עם שתי זוויות שוות – שווה שוקיים.',
+        'במשולש שווה שוקיים <b>חוצה זווית הראש, התיכון לבסיס והגובה לבסיס מתלכדים</b>.',
+        '<b>זיהוי:</b> אם במשולש שניים מהם מתלכדים (חוצה זווית + גובה, תיכון + גובה, חוצה זווית + תיכון) – המשולש שווה שוקיים.',
+      ]},
+      { type: 'tip', text: 'כדי להוכיח שמשולש שווה שוקיים: שתי צלעות שוות, או שתי זוויות שוות, או שניים מהקטעים מתלכדים.' },
+    ],
+  },
+  {
+    id: 'kite',
+    topic: 'kite',
+    title: 'דלתון',
+    blocks: [
+      { type: 'list', items: [
+        '<b>הגדרה:</b> מרובע עם שני זוגות של צלעות סמוכות שוות (<bdi dir="ltr">AB = AD , CB = CD</bdi>).',
+        '<b>אלכסון ראשי</b> – מחבר את הקודקודים שבין הצלעות השוות (<bdi dir="ltr">AC</bdi>). <b>אלכסון משני</b> – <bdi dir="ltr">BD</bdi>.',
+      ]},
+      { type: 'steps', title: 'תכונות הדלתון', items: [
+        'האלכסון הראשי <b>חוצה את זוויות הראש</b> (<bdi dir="ltr">∢A , ∢C</bdi>).',
+        'האלכסון הראשי <b>חוצה את האלכסון המשני</b> (<bdi dir="ltr">BM = MD</bdi>).',
+        'האלכסונים <b>מאונכים</b> זה לזה (<bdi dir="ltr">AC ⊥ BD</bdi>).',
+        'האלכסון הראשי הוא <b>אנך אמצעי</b> לאלכסון המשני.',
+        'הזוויות שבין הצלעות הלא-שוות <b>שוות</b> (<bdi dir="ltr">∢B = ∢D</bdi>).',
+        'האלכסון הראשי מחלק את הדלתון לשני משולשים חופפים.',
+      ]},
+      { type: 'steps', title: 'איך מוכיחים שמרובע הוא דלתון', items: [
+        'לפי ההגדרה: מראים שני זוגות צלעות סמוכות שוות (בד"כ דרך חפיפה).',
+        'אלכסון שהוא <b>אנך אמצעי</b> לאלכסון השני ⇐ דלתון.',
+        'אלכסון ש<b>חוצה שתי זוויות</b> במרובע ⇐ דלתון.',
+      ]},
+      { type: 'tip', text: 'נקודה P על האלכסון הראשי של דלתון ⇐ <bdi dir="ltr">PB = PD</bdi> (כי האלכסון הראשי הוא אנך אמצעי). כך יוצא ש-<bdi dir="ltr">ABPD</bdi> דלתון.' },
+    ],
+  },
+  {
+    id: 'coord',
+    topic: 'kite',
+    title: 'במערכת צירים',
+    blocks: [
+      { type: 'formula', label: 'מרחק בין נקודות', m: 'd = √<span class="ov">(x<sub>2</sub> − x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> − y<sub>1</sub>)<sup>2</sup></span>' },
+      { type: 'formula', label: 'אמצע קטע', m: 'M = ( <span class="frac"><i>x₁ + x₂</i><i>2</i></span> , <span class="frac"><i>y₁ + y₂</i><i>2</i></span> )' },
+      { type: 'formula', label: 'שיפוע', m: 'm = <span class="frac"><i>y₂ − y₁</i><i>x₂ − x₁</i></span>' },
+      { type: 'formula', label: 'ישרים מאונכים', m: 'm<sub>1</sub> · m<sub>2</sub> = −1' },
+      { type: 'steps', title: 'להוכיח דלתון / שווה שוקיים בצירים', items: [
+        'מחשבים אורכי צלעות בנוסחת המרחק.',
+        'שווה שוקיים: שתי צלעות שוות. דלתון: שני זוגות צלעות סמוכות שוות.',
+        'או: אמצע האלכסון המשני נמצא על הראשי + האלכסונים מאונכים (מכפלת שיפועים −1).',
+        'קודקוד חסר: משתמשים בכך שהאלכסון הראשי חוצה את המשני – נקודת האמצע.',
+      ]},
+    ],
+  },
+  {
+    id: 'checklist',
+    topic: 'review',
+    title: 'רשימת בדיקה למבחן',
+    blocks: [
+      { type: 'list', items: [
+        'בפירוק – התחלתי בגורם משותף?',
+        'במשוואה – העברתי הכל לאגף אחד ולא חילקתי ב-x?',
+        'בשבר – רשמתי תחום הצבה <b>לפני</b> הצמצום?',
+        'בחילוק שברים – הוספתי לתחום את מונה המחלק?',
+        'בשאלה מילולית – פסלתי פתרון לא הגיוני וכתבתי תשובה במילים?',
+        'בהוכחה – לכל טענה יש נימוק? ציינתי את משפט החפיפה?',
+        'בדקתי תשובה אחת לפחות בהצבה?',
+      ]},
+    ],
+  },
+];

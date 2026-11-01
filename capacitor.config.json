@@ -1,0 +1,14 @@
+{
+  "appId": "com.elroi.mathprep",
+  "appName": "מוכן למבחן",
+  "webDir": "www",
+  "android": {
+    "adjustMarginsForEdgeToEdge": "force"
+  },
+  "plugins": {
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_notify",
+      "iconColor": "#4B47D6"
+    }
+  }
+}
