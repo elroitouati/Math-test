@@ -34,12 +34,16 @@ window.SOURCES = {
 window.PLAN = [
   {
     date: '2026-11-02',
-    title: 'פותחים בנחת: כפל מקוצר',
-    note: 'יום קליל – רק להיכנס לעניינים',
+    title: 'כפל מקוצר ופירוק לגורמים',
+    note: 'יום בבית – מנצלים אותו ליום לימוד מלא',
     tasks: [
       { id: 'd1-read', topic: 'formulas', src: 'app', title: 'לקרוא את כרטיס "נוסחאות הכפל המקוצר" בלשונית חומר', min: 10 },
       { id: 'd1-a24', topic: 'formulas', src: 'arch', title: "עמ' 24", min: 30 },
       { id: 'd1-s1', topic: 'factoring', src: 'sheet', title: 'שאלה 1 – הוצאת גורם משותף (א–יד)', min: 20, note: "לבדוק מול 'תשובות סופיות' בסוף הדף" },
+      { id: 'd2-a25', topic: 'factoring', src: 'arch', title: "עמ' 25 – עד תרגיל 26", min: 35 },
+      { id: 'd2-a26', topic: 'factoring', src: 'arch', title: "עמ' 26 – תרגיל ג", min: 15 },
+      { id: 'd2-s34', topic: 'factoring', src: 'sheet', title: 'שאלות 3–4 – הפרש ריבועים', min: 25 },
+      { id: 'd2-s56', topic: 'formulas', src: 'sheet', title: 'שאלות 5–6 – פירוק בעזרת הכפל המקוצר', min: 25 },
     ],
   },
   {
@@ -65,25 +69,21 @@ window.PLAN = [
   },
   {
     date: '2026-11-05',
-    title: 'היום הגדול: הוכחות דלתון + פירוק',
-    note: 'היום הכי עמוס – מסיימים את הגאומטריה וממשיכים לאלגברה',
+    title: 'הוכחות דלתון + כפל מקוצר',
+    note: 'מסיימים את הגאומטריה וממשיכים לאלגברה',
     tasks: [
       { id: 'd8-k13', topic: 'kite', src: 'kite', title: 'שאלות 1–3', min: 30 },
       { id: 'd9-k46', topic: 'kite', src: 'kite', title: 'שאלות 4–6', min: 30 },
       { id: 'd9-coord', topic: 'kite', src: 'coord', title: 'דלתון ומשולש שווה שוקיים במערכת צירים', min: 30 },
-      { id: 'd2-a25', topic: 'factoring', src: 'arch', title: "עמ' 25 – עד תרגיל 26", min: 35 },
-      { id: 'd2-a26', topic: 'factoring', src: 'arch', title: "עמ' 26 – תרגיל ג", min: 15 },
-      { id: 'd2-s34', topic: 'factoring', src: 'sheet', title: 'שאלות 3–4 – הפרש ריבועים', min: 25 },
-      { id: 'd2-s56', topic: 'formulas', src: 'sheet', title: 'שאלות 5–6 – פירוק בעזרת הכפל המקוצר', min: 25 },
+      { id: 'd3-a28', topic: 'formulas', src: 'arch', title: "עמ' 28 – תרגיל א", min: 20 },
+      { id: 'd3-s710', topic: 'formulas', src: 'sheet', title: 'שאלות 7–10 – שטחים, השלמת חסר, חשבון בלי מחשבון', min: 35 },
     ],
   },
   {
     date: '2026-11-06',
     title: 'טרינום, משוואות ומילוליות',
-    note: 'כדאי להתחיל בבוקר, לפני שבת',
+    note: 'יום קצר יותר לפני שבת – עדיף בבוקר',
     tasks: [
-      { id: 'd3-a28', topic: 'formulas', src: 'arch', title: "עמ' 28 – תרגיל א", min: 20 },
-      { id: 'd3-s710', topic: 'formulas', src: 'sheet', title: 'שאלות 7–10 – שטחים, השלמת חסר, חשבון בלי מחשבון', min: 35 },
       { id: 'd3-s1113', topic: 'factoring', src: 'sheet', title: 'שאלות 11–13 – פירוק טרינום', min: 30 },
       { id: 'd4-s16', topic: 'equations', src: 'sheet', title: 'שאלה 16 – משוואות בעזרת פירוק (א–יח)', min: 35 },
       { id: 'd4-a29', topic: 'word', src: 'arch', title: "עמ' 29 – תרגילים 1–4 (שאלות מילוליות)", min: 30 },
