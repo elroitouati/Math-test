@@ -41,7 +41,7 @@ window.PLAN = [
       { id: 'd1-a24', topic: 'formulas', src: 'arch', title: "עמ' 24", min: 30 },
       { id: 'd1-s1', topic: 'factoring', src: 'sheet', title: 'שאלה 1 – הוצאת גורם משותף (א–יד)', min: 20, note: "לבדוק מול 'תשובות סופיות' בסוף הדף" },
       { id: 'd2-a25', topic: 'factoring', src: 'arch', title: "עמ' 25 – עד תרגיל 26", min: 35 },
-      { id: 'd2-a26', topic: 'factoring', src: 'arch', title: "עמ' 26 – תרגיל ג", min: 15 },
+      { id: 'd2-a26', topic: 'formulas', src: 'arch', title: "עמ' 26 – תרגיל ג, סעיפים 1–8", min: 30 },
     ],
   },
   {
@@ -110,6 +110,7 @@ window.PLAN = [
     title: 'חזרה אחרונה',
     note: 'ערב המבחן – יום רגוע יותר, עם חזרה על הגאומטריה',
     tasks: [
+      { id: 'd2-a26b', topic: 'formulas', src: 'arch', title: "עמ' 26 – תרגיל ג, סעיפים 9–13", min: 30, note: 'הסעיפים עם הכוכבית – התשובות בסוף התרגיל' },
       { id: 'd9-georedo', topic: 'kite', src: 'kite', title: 'חזרה: לפתור שוב 2 הוכחות בלי להציץ בפתרון', min: 30 },
       { id: 'd4-s2023', topic: 'factoring', src: 'sheet', title: 'שאלות 20–23 – חישוב חכם והוכחות', min: 20 },
       { id: 'd4-s1415', topic: 'factoring', src: 'sheet', title: 'שאלות 14–15 – מלבנים ופירוק x⁸', min: 15, note: 'שאלות כוכבית – אתגר' },
