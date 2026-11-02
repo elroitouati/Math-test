@@ -35,15 +35,13 @@ window.PLAN = [
   {
     date: '2026-11-02',
     title: 'כפל מקוצר ופירוק לגורמים',
-    note: 'יום בבית – מנצלים אותו ליום לימוד מלא',
+    note: 'קצת יותר מהתוכנית, בלי להעמיס – הראש עכשיו באנגלית',
     tasks: [
       { id: 'd1-read', topic: 'formulas', src: 'app', title: 'לקרוא את כרטיס "נוסחאות הכפל המקוצר" בלשונית חומר', min: 10 },
       { id: 'd1-a24', topic: 'formulas', src: 'arch', title: "עמ' 24", min: 30 },
       { id: 'd1-s1', topic: 'factoring', src: 'sheet', title: 'שאלה 1 – הוצאת גורם משותף (א–יד)', min: 20, note: "לבדוק מול 'תשובות סופיות' בסוף הדף" },
       { id: 'd2-a25', topic: 'factoring', src: 'arch', title: "עמ' 25 – עד תרגיל 26", min: 35 },
       { id: 'd2-a26', topic: 'factoring', src: 'arch', title: "עמ' 26 – תרגיל ג", min: 15 },
-      { id: 'd2-s34', topic: 'factoring', src: 'sheet', title: 'שאלות 3–4 – הפרש ריבועים', min: 25 },
-      { id: 'd2-s56', topic: 'formulas', src: 'sheet', title: 'שאלות 5–6 – פירוק בעזרת הכפל המקוצר', min: 25 },
     ],
   },
   {
@@ -81,9 +79,10 @@ window.PLAN = [
   },
   {
     date: '2026-11-06',
-    title: 'טרינום, משוואות ומילוליות',
-    note: 'יום קצר יותר לפני שבת – עדיף בבוקר',
+    title: 'הפרש ריבועים, טרינום ומשוואות',
+    note: 'כדאי להתחיל בבוקר, לפני שבת',
     tasks: [
+      { id: 'd2-s34', topic: 'factoring', src: 'sheet', title: 'שאלות 3–4 – הפרש ריבועים', min: 25 },
       { id: 'd3-s1113', topic: 'factoring', src: 'sheet', title: 'שאלות 11–13 – פירוק טרינום', min: 30 },
       { id: 'd4-s16', topic: 'equations', src: 'sheet', title: 'שאלה 16 – משוואות בעזרת פירוק (א–יח)', min: 35 },
       { id: 'd4-a29', topic: 'word', src: 'arch', title: "עמ' 29 – תרגילים 1–4 (שאלות מילוליות)", min: 30 },
@@ -97,8 +96,9 @@ window.PLAN = [
   },
   {
     date: '2026-11-08',
-    title: 'שברים אלגבריים',
+    title: 'כפל מקוצר ושברים אלגבריים',
     tasks: [
+      { id: 'd2-s56', topic: 'formulas', src: 'sheet', title: 'שאלות 5–6 – פירוק בעזרת הכפל המקוצר', min: 25 },
       { id: 'd5-s17', topic: 'fractions', src: 'sheet', title: 'שאלה 17 – צמצום ותחום הצבה (א–יד)', min: 30 },
       { id: 'd5-a42a', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה א, סעיפים 1–15", min: 35 },
       { id: 'd5-a42b', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה ב, סעיפים 1–11", min: 30 },
