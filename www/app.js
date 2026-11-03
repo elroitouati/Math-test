@@ -185,7 +185,7 @@ function viewToday() {
     html += `<div class="section"><div class="banner calm"><span class="em">💪</span><div><h3>בהצלחה במבחן!</h3><p>נשום עמוק, קרא כל שאלה פעמיים, ותתחיל ממה שאתה בטוח בו.</p></div></div>
       <button class="btn ghost block" data-action="goto" data-view="material">לעבור על רשימת הבדיקה</button></div>`;
   } else if (day && day.rest) {
-    html += `<div class="section"><div class="banner calm"><span class="em">🕯️</span><div><h3>שבת שלום</h3><p>היום אין משימות. מנוחה היא חלק מהתוכנית.</p></div></div></div>`;
+    html += `<div class="section"><div class="banner calm"><span class="em">${day.emoji || '🕯️'}</span><div><h3>${esc(day.title)}</h3><p>${esc(day.note || 'היום אין משימות. מנוחה היא חלק מהתוכנית.')}</p></div></div></div>`;
   } else if (day) {
     const st = dayStats(day);
     html += `<div class="section">
@@ -241,9 +241,9 @@ function viewPlan() {
     if (openDays.has(day.date) && !day.rest) cls.push('open');
     if (day.rest) cls.push('rest');
     if (past && !day.rest && !st.complete) cls.push('past-incomplete');
-    const status = day.rest ? '<span style="font-size:20px">🕯️</span>'
+    const status = day.rest ? `<span style="font-size:20px">${day.emoji || '🕯️'}</span>`
       : st.complete ? `<span class="status-done">${I.check}</span>` : miniRing(st.pct);
-    const sub = day.rest ? 'מנוחה' : `${n(st.done + '/' + st.total)} משימות · ~${n(day.tasks.reduce((a, t) => a + t.min, 0))} דק׳${isToday ? ' · היום' : ''}${past && !st.complete ? ' · נשאר להשלים' : ''}`;
+    const sub = day.rest ? 'בלי משימות' : `${n(st.done + '/' + st.total)} משימות · ~${n(day.tasks.reduce((a, t) => a + t.min, 0))} דק׳${isToday ? ' · היום' : ''}${past && !st.complete ? ' · נשאר להשלים' : ''}`;
     html += `<div class="${cls.join(' ')}" data-day="${day.date}">
       <button class="day-head" ${day.rest ? 'disabled' : `data-action="toggle-day" data-date="${day.date}" aria-expanded="${openDays.has(day.date)}"`}>
         <span class="day-date"><div class="dw">${WD[d.getDay()]}</div><div class="dn">${n(d.getDate())}</div></span>
@@ -487,6 +487,7 @@ async function doSchedule() {
     const dow = parseKey(day.date).getDay();
     let rt = state.settings.remind;
     if (dow === 5 && rt > '10:00') rt = '09:30';
+    if (dow === 6 && rt < '18:30') rt = '18:30'; // מוצאי שבת
     const left = st.total - st.done;
     const first = day.tasks.find(x => !isDone(x.id));
     const when = at(day.date, rt);
