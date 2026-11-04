@@ -399,3 +399,12 @@ b { font-weight: 500; }
   .ring { width: 84px; height: 84px; }
   .strip { gap: 4px; padding: 12px; }
 }
+
+/* optional tasks + method hint */
+.chip.opt { background: transparent; border: 1px dashed var(--border-strong); color: var(--text-2); }
+.task:has(.chip.opt) .check { border-style: dashed; }
+.method-hint {
+  display: block; width: 100%; text-align: start; margin: 4px 0 12px; padding: 10px 14px;
+  border-radius: var(--r-md); background: var(--accent-soft); color: var(--accent);
+  font-size: 14px; font-weight: 500; line-height: 1.45; min-height: 44px;
+}

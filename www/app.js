@@ -44,11 +44,12 @@ const shortDate = k => { const d = parseKey(k); return `${d.getDate()}/${d.getMo
 const examAt = () => { const d = parseKey(EXAM.date); const [h, m] = EXAM.time.split(':').map(Number); d.setHours(h, m, 0, 0); return d; };
 
 // ---------- Derived ----------
-const allTasks = PLAN.flatMap(d => d.tasks.map(t => ({ ...t, date: d.date })));
+const allTasks = PLAN.flatMap(d => d.tasks.filter(t => !t.optional).map(t => ({ ...t, date: d.date })));
+const req = tasks => tasks.filter(t => !t.optional);
 const isDone = id => !!state.done[id];
 function dayStats(day) {
-  const total = day.tasks.length;
-  const done = day.tasks.filter(t => isDone(t.id)).length;
+  const total = req(day.tasks).length;
+  const done = req(day.tasks).filter(t => isDone(t.id)).length;
   return { total, done, pct: total ? done / total : 0, complete: total > 0 && done === total };
 }
 function overall() {
@@ -120,7 +121,7 @@ function taskHTML(t, { showDay = false } = {}) {
     <span class="task-body">
       <span class="task-title">${esc(t.title)}</span>
       <span class="task-meta">
-        <span class="chip src-${t.src}">${esc(SOURCES[t.src])}</span>
+        ${t.optional ? '<span class="chip opt">רשות</span>' : ''}<span class="chip src-${t.src}">${esc(SOURCES[t.src])}</span>
         <span>${esc(tp.short)}</span><span aria-hidden="true">·</span><span>~${n(t.min)} דק׳</span>
         ${late}
       </span>
@@ -191,6 +192,7 @@ function viewToday() {
     html += `<div class="section">
       <div class="section-head"><h2>${esc(day.title)}</h2><span class="aside">${n(st.done + '/' + st.total)}</span></div>
       ${day.note ? `<div class="eyebrow">${esc(day.note)}</div>` : ''}
+      <button class="method-hint" data-action="goto" data-view="material" data-open="method">רק הסעיפים שכתובים · בודקים מיד · טעית ⇐ עוד אחד מאותו סוג</button>
       <div class="daybar ${st.complete ? 'done' : ''}"><i style="width:${st.pct * 100}%"></i></div>
       ${st.complete ? `<div class="banner success celebrate" style="margin-bottom:12px"><span class="em">🎉</span><div><h3>סיימת את היום!</h3><p>עקביות זה כל הסוד. נתראה מחר.</p></div></div>` : ''}
       <div class="card tasks">${day.tasks.map(t => taskHTML(t)).join('')}</div>
@@ -218,7 +220,7 @@ function viewToday() {
     html += `<div class="section">
       <div class="section-head"><h2>${dayDiff(tk, nx.date) === 1 ? 'מחר' : 'יום ' + WD_LONG[dd.getDay()]}</h2><span class="aside">${n(shortDate(nx.date))}</span></div>
       <div class="card preview"><div class="t">${esc(nx.title)}</div>
-        <ul>${nx.tasks.map(t => `<li>${esc(SOURCES[t.src])} – ${esc(t.title)}</li>`).join('')}</ul>
+        <ul>${nx.tasks.map(t => `<li>${esc(SOURCES[t.src])} – ${esc(t.title)}${t.optional ? " (רשות)" : ""}</li>`).join('')}</ul>
       </div>
     </div>`;
   }
@@ -264,9 +266,10 @@ function viewPlan() {
 
 function viewMaterial() {
   let html = `<header class="top"><div><h1>חומר למבחן</h1><div class="sub">נוסחאות, תכונות ושיטות – הכל במקום אחד</div></div></header>`;
-  html += `<div class="eyebrow" style="margin-bottom:8px">אלגברה</div>`;
+  html += `<div class="eyebrow" style="margin-bottom:8px">שיטת העבודה</div>`;
   const geoStart = MATERIAL.findIndex(m => m.id === 'congruence');
   MATERIAL.forEach((m, i) => {
+    if (m.id === 'formulas') html += `<div class="eyebrow" style="margin:22px 0 8px">אלגברה</div>`;
     if (i === geoStart) html += `<div class="eyebrow" style="margin:22px 0 8px">גאומטריה</div>`;
     if (m.id === 'checklist') html += `<div class="eyebrow" style="margin:22px 0 8px">לפני המבחן</div>`;
     const tp = TOPICS[m.topic];
@@ -390,7 +393,7 @@ document.addEventListener('click', e => {
   } else if (act === 'reveal') {
     const ans = a.nextElementSibling; ans.hidden = !ans.hidden; a.textContent = ans.hidden ? 'להציג תשובה' : 'להסתיר תשובה';
   } else if (act === 'goto') {
-    if (a.dataset.view === 'material') openMat.add('checklist');
+    if (a.dataset.view === 'material') openMat.add(a.dataset.open || 'checklist');
     go(a.dataset.view);
   } else if (act === 'settings') openSheet();
   else if (act === 'enable-notif') enableNotifications();
@@ -489,7 +492,7 @@ async function doSchedule() {
     if (dow === 5 && rt > '10:00') rt = '09:30';
     if (dow === 6 && rt < '18:30') rt = '18:30'; // מוצאי שבת
     const left = st.total - st.done;
-    const first = day.tasks.find(x => !isDone(x.id));
+    const first = req(day.tasks).find(x => !isDone(x.id));
     const when = at(day.date, rt);
     if (+when > t) list.push({
       id: 100 + i, channelId: 'study',
