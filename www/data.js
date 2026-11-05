@@ -68,7 +68,8 @@ window.PLAN = [
     title: 'דלתון',
     tasks: [
       { id: 'd8-read', topic: 'kite', src: 'app', title: 'לקרוא את כרטיס "דלתון"', min: 10 },
-      { id: 'd8-a246', topic: 'kite', src: 'arch', title: "עמ' 246–249 – לקרוא את הדוגמאות הפתורות + 3 הוכחות (מעמודים שונים)", min: 45 },
+      { id: 'd8-a246', topic: 'kite', src: 'arch', title: "עמ' 246–249 – המסגרת האפורה + שאלות 3, 5, 7, 8, 12", min: 60, note: 'אם 3 קשה – להתחיל ב-1 כחימום. תשובות בתחתית עמ׳ 247 ו-249' },
+      { id: 'd8-a246b', topic: 'kite', src: 'arch', title: "עמ' 249 – שאלה 13 (*) בונוס", min: 20, optional: true },
       { id: 'd8-h34', topic: 'kite', src: 'home', title: 'שאלות 3–4', min: 20 },
       { id: 'd8-k13', topic: 'kite', src: 'kite', title: 'שאלות 1–2', min: 25 },
       { id: 'd8-k3opt', topic: 'kite', src: 'kite', title: 'שאלה 3', min: 10, optional: true },
