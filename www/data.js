@@ -81,9 +81,8 @@ window.PLAN = [
     note: 'יום קצר לפני שבת – עדיף בבוקר',
     tasks: [
       { id: 'd9-k46', topic: 'kite', src: 'kite', title: 'שאלה 5', min: 15 },
-      { id: 'd9-coord', topic: 'kite', src: 'coord', title: 'שאלה אחת על דלתון + שאלה אחת על משולש שווה שוקיים', min: 25 },
-      { id: 'd2-s34', topic: 'factoring', src: 'sheet', title: 'שאלה 3: א, ה, ז, ח, י, יא★ · שאלה 4: א, ג, ו, ח', min: 20 },
-      { id: 'd3-a28', topic: 'formulas', src: 'arch', title: "עמ' 28 – תרגיל א, כל סעיף שני", min: 15 },
+      { id: 'd2-s34', topic: 'factoring', src: 'sheet', title: 'שאלה 3: א, ה, ז, ח, י, יא★ · שאלה 4: א, ג, ו, ח', min: 20, optional: true },
+      { id: 'd3-a28', topic: 'formulas', src: 'arch', title: "עמ' 28 – תרגיל א, כל סעיף שני", min: 15, optional: true },
       { id: 'd9-k46opt', topic: 'kite', src: 'kite', title: 'שאלות 4 ו-6', min: 20, optional: true },
     ],
   },
@@ -92,34 +91,35 @@ window.PLAN = [
     title: 'מוצאי שבת: פירוק בקבוצות וכפל מקוצר',
     note: 'אחרי צאת השבת – קצר',
     tasks: [
-      { id: 'd1-s2', topic: 'factoring', src: 'sheet', title: 'שאלה 2: א, ה, ט, יא, יב, יד, טו★', min: 20 },
-      { id: 'd2-s56', topic: 'formulas', src: 'sheet', title: 'שאלה 5: א, ד, ו · שאלה 6: א, ג, ה, ח★', min: 20 },
+      { id: 'd1-s2', topic: 'factoring', src: 'sheet', title: 'שאלה 2: א, ה, ט, יא, יב, יד, טו★', min: 20, optional: true },
+      { id: 'd2-s56', topic: 'formulas', src: 'sheet', title: 'שאלה 5: א, ד, ו · שאלה 6: א, ג, ה, ח★', min: 20, optional: true },
     ],
   },
   {
     date: '2026-11-08',
-    title: 'שברים אלגבריים',
+    title: 'מתרגלים לפי מבנה המבחן – חלק א',
+    note: 'כל משימה = שאלה במבחן. שאלה 5 (הוכחה) כבר תורגלה ברביעי–שישי',
     tasks: [
-      { id: 'd5-s17', topic: 'fractions', src: 'sheet', title: 'שאלה 17: א, ג, ו, ז, ט, יא, יד', min: 20 },
-      { id: 'd5-a42a', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה א, סעיפים 1, 4, 7, 10, 13", min: 20 },
-      { id: 'd5-a42b', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה ב, סעיפים 2, 5, 8, 11", min: 15 },
-      { id: 'd5-s1819', topic: 'fractions', src: 'sheet', title: 'שאלה 18: א, ד · שאלה 19: א, ג', min: 15 },
-      { id: 'd3-s710', topic: 'formulas', src: 'sheet', title: 'שאלה 8 · שאלה 9: א, ג, ה · שאלה 10: א, ג', min: 15 },
-      { id: 'd4-s1415', topic: 'factoring', src: 'sheet', title: 'שאלה 14 – מלבנים', min: 10 },
+      { id: 'd4-s16', topic: 'equations', src: 'sheet', title: 'שאלה 16: ב, ד, ו, ח, ט, יב, יג, טו, יח', min: 30, note: 'במבחן: שאלה 1 – משוואות' },
+      { id: 'd5-s17', topic: 'fractions', src: 'sheet', title: 'שאלה 17: א, ג, ו, ז, ט, יא, יד', min: 20, note: 'במבחן: שאלה 2 – צמצום שברים' },
+      { id: 'd5-a42a', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה א, סעיפים 1, 4, 7, 10, 13", min: 20, note: 'במבחן: שאלה 2 – כפל וחילוק שברים' },
+      { id: 'd4-a29', topic: 'word', src: 'arch', title: "עמ' 29 – תרגילים 1 ו-3 (שאלות מילוליות)", min: 25, note: 'במבחן: שאלה 3 – שאלה מילולית' },
+      { id: 'd9-coord', topic: 'kite', src: 'coord', title: 'שאלה 3 – דלתון במערכת צירים', min: 25, note: 'במבחן: שאלה 4 – גאומטריה בצירים' },
     ],
   },
   {
     date: '2026-11-09',
-    title: 'טרינום, משוואות וחזרה',
+    title: 'מתרגלים לפי מבנה המבחן – חלק ב',
     note: 'ערב המבחן – מסיימים מוקדם והולכים לישון',
     tasks: [
-      { id: 'd3-s1113', topic: 'factoring', src: 'sheet', title: 'שאלה 11 · שאלה 12: א, ג, ו, ח, ט, יא★ · שאלה 13: א, ג', min: 20 },
-      { id: 'd4-s16', topic: 'equations', src: 'sheet', title: 'שאלה 16: ב, ד, ו, ח, ט, יב, יג, טו, יח', min: 30 },
-      { id: 'd4-a29', topic: 'word', src: 'arch', title: "עמ' 29 – תרגילים 1 ו-3 (שאלות מילוליות)", min: 25 },
-      { id: 'd9-georedo', topic: 'kite', src: 'kite', title: 'חזרה: הוכחה אחת שהיה לך קשה בה – שוב, בלי להציץ', min: 15 },
-      { id: 'd9-check', topic: 'review', src: 'app', title: 'לעבור על כרטיסי החומר + רשימת הבדיקה למבחן', min: 10 },
+      { id: 'd3-s1113', topic: 'equations', src: 'sheet', title: 'שאלה 12: א, ג, ו, ח · שאלה 16: א, ג, ה (שלא עשית אתמול)', min: 20, note: 'במבחן: שאלה 1 – משוואות' },
+      { id: 'd5-s1819', topic: 'fractions', src: 'sheet', title: 'שאלה 18: א, ד · שאלה 19: א, ג', min: 15, note: 'במבחן: שאלה 2 – כפל וחילוק שברים' },
+      { id: 'cs-1', topic: 'isosceles', src: 'coord', title: 'שאלה 1 – משולש שווה שוקיים ודלתון במערכת צירים', min: 30, note: 'במבחן: שאלה 4 – גאומטריה בצירים' },
+      { id: 'd9-georedo', topic: 'kite', src: 'kite', title: 'לפתור שוב הוכחת דלתון אחת + הוכחת שווה שוקיים אחת, בלי להציץ', min: 20, note: 'במבחן: שאלה 5 – הוכחה' },
+      { id: 'd9-check', topic: 'review', src: 'app', title: 'לעבור על כרטיס "מבנה המבחן" + רשימת הבדיקה', min: 10 },
+      { id: 'd5-a42b', topic: 'fractions', src: 'arch', title: "עמ' 42 – שאלה ב, סעיפים 2, 5, 8, 11", min: 15, optional: true },
+      { id: 'cs-45', topic: 'isosceles', src: 'coord', title: 'שאלה 4 או שאלה 5', min: 30, optional: true },
       { id: 'd4-a29opt', topic: 'word', src: 'arch', title: "עמ' 29 – תרגילים 2 ו-4", min: 20, optional: true },
-      { id: 'd4-s2023', topic: 'factoring', src: 'sheet', title: 'שאלות 15, 20–23', min: 20, optional: true },
     ],
   },
 ];
@@ -127,6 +127,21 @@ window.PLAN = [
 // ===== חומר לימוד =====
 // כל נוסחה נכתבת כ-HTML. מתמטיקה תמיד LTR בתוך <span class="m">.
 window.MATERIAL = [
+  {
+    id: 'structure',
+    topic: 'review',
+    title: 'מבנה המבחן – 5 שאלות',
+    blocks: [
+      { type: 'steps', title: 'מה יהיה במבחן', items: [
+        '<b>שאלה 1 – שתי משוואות.</b> פותחים סוגריים (פילוג מורחב, כפל מקוצר), או מעבירים לאגף אחד ומפרקים לגורמים.',
+        '<b>שאלה 2 – צמצום, כפל או חילוק שברים אלגבריים.</b> לפרק, לרשום תחום הצבה, לצמצם רק גורמים.',
+        '<b>שאלה 3 – שאלה מילולית.</b> משתנה x, טבלה, משוואה, לפסול פתרון לא הגיוני, תשובה במילים.',
+        '<b>שאלה 4 – גאומטריה במערכת צירים.</b> מרחק, אמצע קטע, שיפוע, ישרים מאונכים, שטח דלתון = אלכסון · אלכסון / 2.',
+        '<b>שאלה 5 – הוכחה בגאומטריה.</b> דלתון / משולש שווה שוקיים – חפיפה, טענה ונימוק בכל שורה.',
+      ]},
+      { type: 'tip', text: 'במבחן: מתחילים מהשאלה שאתה הכי בטוח בה. בגאומטריה בצירים – לשרטט ולסמן כל נתון לפני שמחשבים.' },
+    ],
+  },
   {
     id: 'method',
     topic: 'review',
@@ -302,6 +317,9 @@ window.MATERIAL = [
       { type: 'formula', label: 'אמצע קטע', m: 'M = ( <span class="frac"><i>x₁ + x₂</i><i>2</i></span> , <span class="frac"><i>y₁ + y₂</i><i>2</i></span> )' },
       { type: 'formula', label: 'שיפוע', m: 'm = <span class="frac"><i>y₂ − y₁</i><i>x₂ − x₁</i></span>' },
       { type: 'formula', label: 'ישרים מאונכים', m: 'm<sub>1</sub> · m<sub>2</sub> = −1' },
+      { type: 'formula', label: 'משוואת ישר', m: 'y − y<sub>1</sub> = m(x − x<sub>1</sub>)' },
+      { type: 'formula', label: 'שטח דלתון', m: 'S = <span class="frac"><i>k₁ · k₂</i><i>2</i></span>' },
+      { type: 'tip', text: 'נקודת חיתוך של שני ישרים: משווים את ה-y של שני הישרים ופותרים. ישר מקביל לציר x הוא <bdi dir="ltr">y = מספר</bdi>, ומקביל לציר y הוא <bdi dir="ltr">x = מספר</bdi>.' },
       { type: 'steps', title: 'להוכיח דלתון / שווה שוקיים בצירים', items: [
         'מחשבים אורכי צלעות בנוסחת המרחק.',
         'שווה שוקיים: שתי צלעות שוות. דלתון: שני זוגות צלעות סמוכות שוות.',

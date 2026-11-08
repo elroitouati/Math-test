@@ -50,7 +50,8 @@ const isDone = id => !!state.done[id];
 function dayStats(day) {
   const total = req(day.tasks).length;
   const done = req(day.tasks).filter(t => isDone(t.id)).length;
-  return { total, done, pct: total ? done / total : 0, complete: total > 0 && done === total };
+  const allOptional = total === 0 && day.tasks.length > 0;
+  return { total, done, pct: total ? done / total : (allOptional ? 1 : 0), complete: allOptional || (total > 0 && done === total) };
 }
 function overall() {
   const total = allTasks.length;
@@ -266,7 +267,7 @@ function viewPlan() {
 
 function viewMaterial() {
   let html = `<header class="top"><div><h1>חומר למבחן</h1><div class="sub">נוסחאות, תכונות ושיטות – הכל במקום אחד</div></div></header>`;
-  html += `<div class="eyebrow" style="margin-bottom:8px">שיטת העבודה</div>`;
+  html += `<div class="eyebrow" style="margin-bottom:8px">לפני הכל</div>`;
   const geoStart = MATERIAL.findIndex(m => m.id === 'congruence');
   MATERIAL.forEach((m, i) => {
     if (m.id === 'formulas') html += `<div class="eyebrow" style="margin:22px 0 8px">אלגברה</div>`;
